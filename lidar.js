@@ -11,7 +11,7 @@ const scan = () => {
     const b = parseFloat(parts[5]);
     const c = parseFloat(parts[6]);
     console.log(front, right, back, left);
-    return { front, right, back, left, a, b, c };
+    return [ front, right, back, left, a, b, c ];
 };
 
 module.exports = {
