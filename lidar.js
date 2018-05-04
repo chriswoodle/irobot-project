@@ -1,8 +1,8 @@
 const spawn = require('child_process').spawnSync;
 
 const scan = () => {
-    const results = spawn('python', ['rplidar.py', 'out.txt']);
-    const parts = results.split(' ');
+    const results = spawn('python', ['/home/pi/robotics/rplidarbasic.py', 'out.txt']);
+    const parts = results.output.toString().split(' ');
     const front = parts[0];
     const right = parts[1];
     const back = parts[2];
