@@ -125,8 +125,8 @@ const turnTo = (d, callback) => {
         console.log('go')
         if (directions[index] == d) return callback();
         roomba.turn(() => {
-            direction = directions[index];
             index++
+            direction = directions[index];
             if (!(index < 4)) {
                 // wrap back around directions array
                 index = 0;
