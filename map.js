@@ -74,7 +74,7 @@ const setNeighborWeights = (neighbors, distances) => {
     // console.log(neighbors);
     map[location.x][location.y].neighbors = map[location.x][location.y].neighbors || {}
     Object.keys(neighbors).forEach((d) => {
-        if (neighbors[d].x >= 0 && neighbors[d].y >= 0) {
+        if (neighbors[d].x >= 0 && neighbors[d].y >= 0 && neighbors[d].x < 4 && neighbors[d].y < 4) {
             map[location.x][location.y].neighbors[d] = neighbors[d];
         }
     })
