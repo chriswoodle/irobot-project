@@ -118,13 +118,17 @@ const turnTo = (d) => {
         }
     }
 };
+
 setTimeout(() => {
+    console.log('starting');
     while (isMapComplete()) {
         //const distances = lidar.scanDistances()
         visit();
         move();
         console.log(map);
     }
+    console.log('done');
+
 }, 3000);
 
 console.log(map);
