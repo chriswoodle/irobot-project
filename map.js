@@ -83,8 +83,8 @@ const setNeighborWeights = (neighbors, distances) => {
 
 const visit = (callback) => {
     console.log('visit')
-    if(map[location.x][location.y].visited === true) {
-    console.log('visited');
+    if (map[location.x][location.y].visited === true) {
+        console.log('visited');
         callback();
     }
     const distances = lidar.scan();
@@ -96,12 +96,18 @@ const visit = (callback) => {
 const move = (callback) => {
     console.log('move')
     let target;
-    Object.keys(map[location.x][location.y].neighbors).forEach((key) => {
-        const neighbor = map[location.x][location.y].neighbors[key];
-        if (map[neighbor.x][neighbor.y].visited !== true && map[location.x][location.y].neighbors[key].weight) {
+    let index = directions.indexOf(direction);
+    for (let checkIndex = 0; checkIndex < 4; checkIndex++) {
+        const neighbor = map[location.x][location.y].neighbors[directions[index]];
+        if (neighbor && map[neighbor.x][neighbor.y].visited !== true && map[location.x][location.y].neighbors[key].weight) {
             target = { direction: key, x: neighbor.x, y: neighbor.y };
         }
-    });
+        index++
+        if (!(index < 4)) {
+            // wrap back around directions array
+            index = 0;
+        }
+    }
     console.log(target);
     if (target) {
         turnTo(target.direction, () => {
@@ -141,7 +147,7 @@ const turnTo = (d, callback) => {
     go();
 };
 
-const printMap = ()=>{
+const printMap = () => {
     map.forEach((row) => {
         row.forEach((place) => {
             if (place.visited === true) {
