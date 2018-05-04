@@ -97,7 +97,7 @@ const move = (callback) => {
     console.log('move')
     let target;
     let index = directions.indexOf(direction);
-    console.log(map[location.x][location.y].neighbors[directions[index]]);
+    console.log(map[location.x][location.y].neighbors);
     for (let checkIndex = 0; checkIndex < 4; checkIndex++) {
         index++
         if (!(index < 4)) {
