@@ -145,7 +145,7 @@ setTimeout(() => {
         visit(() => {
             move(() => {
                 console.log(map);
-                go();
+                setTimeout(go, 1000);
             });
         });
     }
