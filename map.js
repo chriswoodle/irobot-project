@@ -28,7 +28,7 @@ const location = { x: 0, y: 0 };
  *      south 
  */
 const directions = ['north', 'east', 'south', 'west'];
-const direction = 'east';
+let direction = 'east';
 
 const isMapComplete = () => {
     let isComplete = true;
