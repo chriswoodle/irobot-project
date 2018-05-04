@@ -9,6 +9,7 @@ robot.on('ready', function () {
 });
 
 const moveForward = (callback) => {
+    console.log('moveForward')
     robot.drive(100, 0);
     setTimeout(() => {
         stop();
@@ -17,6 +18,7 @@ const moveForward = (callback) => {
 };
 
 const moveReverse = (callback) => {
+    console.log('moveReverse')
     robot.drive(-100, 0);
     setTimeout(() => {
         stop();
@@ -33,19 +35,20 @@ const turn = (callback) => {
 }
 
 const stop = () => {
+    console.log('stop moving')
     robot.drive(0, 0);
     robot.rotate(0);
 }
 
-robot.on('bump', function (bumpEvent) {
-    console.log(bumpEvent);
-    robot.drive(0, 0);
-    robot.rotate(0);
-    robot.drive(-100, 0);
-    setTimeout(() => {
-        stop();
-    }, 1000);
-});
+// robot.on('bump', function (bumpEvent) {
+//     console.log(bumpEvent);
+//     robot.drive(0, 0);
+//     robot.rotate(0);
+//     robot.drive(-100, 0);
+//     setTimeout(() => {
+//         stop();
+//     }, 1000);
+// });
 
 module.exports = {
     // straighten: straighten,
