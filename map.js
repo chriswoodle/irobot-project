@@ -81,11 +81,12 @@ const setNeighborWeights = (neighbors, distances) => {
     console.log(map[location.x][location.y]);
 }
 
-const visit = () => {
+const visit = (callback) => {
     console.log('visit')
     const distances = lidar.scan();
     setNeighborWeights(getNeighbors(), distances);
     map[location.x][location.y].visited = true;
+    callback();
 }
 
 const move = (callback) => {
@@ -134,10 +135,11 @@ setTimeout(() => {
 
     const go = () => {
         if (isMapComplete() === true) return;
-        visit();
-        move(() => {
-            console.log(map);
-            go();
+        visit(() => {
+            move(() => {
+                console.log(map);
+                go();
+            });
         });
     }
     go();
