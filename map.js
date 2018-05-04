@@ -83,10 +83,10 @@ const setNeighborWeights = (neighbors, distances) => {
 
 const visit = (callback) => {
     console.log('visit')
-    // if (map[location.x][location.y].visited === true) {
-    //     console.log('visited');
-    //     return callback();
-    // }
+    if (map[location.x][location.y].visited === true) {
+        console.log('visited');
+        return callback();
+    }
     const distances = lidar.scan();
     setNeighborWeights(getNeighbors(), distances);
     map[location.x][location.y].visited = true;
