@@ -117,10 +117,10 @@ const move = (callback) => {
     }
 }
 
-const turnTo = (d) => {
+const turnTo = (d, callback) => {
     let index = directions.indexOf(direction);
     const go = () => {
-        if (directions[index] == d) return;
+        if (directions[index] == d) return callback();
         roomba.turn(() => {
             direction = directions[index];
             index++
