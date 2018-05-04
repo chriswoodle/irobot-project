@@ -108,6 +108,7 @@ const move = (callback) => {
 
 const turnTo = (d) => {
     let index = directions.indexOf(direction);
+    go();
     const go = () => {
         if (directions[index] == d) return;
         roomba.turn(() => {
@@ -124,12 +125,10 @@ const turnTo = (d) => {
 
 setTimeout(() => {
     console.log('starting');
-    while (!isMapComplete()) {
-        //const distances = lidar.scanDistances()
+    go();
 
-    }
     const go = () => {
-        if (isMapComplete()) return;
+        if (isMapComplete() === true) return;
         visit();
         move(() => {
             console.log(map);
