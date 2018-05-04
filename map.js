@@ -94,7 +94,7 @@ const move = (callback) => {
     let target;
     Object.keys(map[location.x][location.y].neighbors).forEach((key) => {
         const neighbor = map[location.x][location.y].neighbors[key];
-        if (map[neighbor.x][neighbor.y].visited !== true && neighbors[key].weight) {
+        if (map[neighbor.x][neighbor.y].visited !== true && map[location.x][location.y].neighbors[key].weight) {
             target = { direction: key, x: neighbor.x, y: neighbor.y };
         }
     });
