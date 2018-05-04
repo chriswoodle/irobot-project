@@ -99,8 +99,8 @@ const move = (callback) => {
     let index = directions.indexOf(direction);
     for (let checkIndex = 0; checkIndex < 4; checkIndex++) {
         const neighbor = map[location.x][location.y].neighbors[directions[index]];
-        if (neighbor && map[neighbor.x][neighbor.y].visited !== true && map[location.x][location.y].neighbors[key].weight) {
-            target = { direction: key, x: neighbor.x, y: neighbor.y };
+        if (neighbor && map[neighbor.x][neighbor.y].visited !== true && map[location.x][location.y].neighbors[directions[index]].weight) {
+            target = { direction: directions[index], x: neighbor.x, y: neighbor.y };
         }
         index++
         if (!(index < 4)) {
