@@ -1,6 +1,6 @@
 const robot = require("create-oi");
 
-robot.init({ serialport: "/dev/tty.usbserial-FTCXAMNW", version: 1 })
+robot.init({ serialport: "/dev/ttyUSB1", version: 1 })
 
 robot.on('ready', function () {
     // twirl towards freedom
