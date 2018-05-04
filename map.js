@@ -108,7 +108,6 @@ const move = (callback) => {
 
 const turnTo = (d) => {
     let index = directions.indexOf(direction);
-    go();
     const go = () => {
         if (directions[index] == d) return;
         roomba.turn(() => {
@@ -121,11 +120,11 @@ const turnTo = (d) => {
             go();
         })
     }
+    go();
 };
 
 setTimeout(() => {
     console.log('starting');
-    go();
 
     const go = () => {
         if (isMapComplete() === true) return;
@@ -135,6 +134,7 @@ setTimeout(() => {
             go();
         });
     }
+    go();
     console.log('done');
 }, 3000);
 console.log(map);
