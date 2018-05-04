@@ -116,12 +116,13 @@ const turnTo = (d) => {
         }
     }
 };
-
-while (false && isMapComplete()) {
-    //const distances = lidar.scanDistances()
-    visit();
-    move();
-
-}
+setTimeout(() => {
+    while (false && isMapComplete()) {
+        //const distances = lidar.scanDistances()
+        visit();
+        move();
+        console.log(map);
+    }
+}, 3000);
 
 console.log(map);
