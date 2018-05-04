@@ -107,7 +107,7 @@ const move = () => {
 const turnTo = (d) => {
     let index = directions.indexOf(direction);
     while (directions[index] != target) {
-        oomba.turn()
+        roomba.turn()
         direction = directions[index];
         index++
         if (!(index < 4)) {
@@ -116,10 +116,6 @@ const turnTo = (d) => {
         }
     }
 };
-setTimeout(()=> {
-    roomba.turn();
-
-}, 2000);
 
 while (false && isMapComplete()) {
     //const distances = lidar.scanDistances()
