@@ -140,7 +140,7 @@ const turnTo = (d, callback) => {
 const printMap = ()=>{
     map.forEach((row) => {
         row.forEach((place) => {
-            if (place.visited !== true) {
+            if (place.visited === true) {
                 process.stdout.write('V');
             } else {
                 process.stdout.write('X');
@@ -156,9 +156,9 @@ setTimeout(() => {
     const go = () => {
         if (isMapComplete() === true) return;
         visit(() => {
+            printMap();
             move(() => {
                 console.log(map);
-                printMap();
                 setTimeout(go, 1000);
             });
         });
