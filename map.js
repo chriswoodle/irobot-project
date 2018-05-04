@@ -120,7 +120,10 @@ const move = (callback) => {
         });
 
     } else {
+        console.log('pop path!');
         const previous = path.pop();
+        console.log('pop path!', previous);
+
         turnTo(previous.direction, () => {
             console.log('turntocomplete');
             location.x = previous.x;
