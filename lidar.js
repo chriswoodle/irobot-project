@@ -10,6 +10,7 @@ const scan = () => {
     const a = parts[4];
     const b = parts[5];
     const c = parts[6];
+    console.log(front, right, back, left);
     return { front, right, back, left, a, b, c };
 };
 

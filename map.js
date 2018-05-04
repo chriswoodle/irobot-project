@@ -98,10 +98,14 @@ const move = (callback) => {
     if (target) {
         turnTo(target.direction);
         path.push(target);
+        location.x = target.x;
+        location.y = target.y;
         roomba.moveForward(callback)
     } else {
         const previous = path.pop();
         turnTo(previous.direction);
+        location.x = previous.x;
+        location.y = previous.y;
         roomba.moveReverse(callback)
     }
 }
