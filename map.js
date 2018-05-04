@@ -171,6 +171,7 @@ setTimeout(() => {
         visit(() => {
             printMap();
             console.log('LOCATION: ', location)
+            if (isMapComplete() === true) return;
             move(() => {
                 console.log('MAP: ', map);
                 console.log('PATH: ', path);
