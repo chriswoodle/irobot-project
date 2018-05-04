@@ -159,6 +159,7 @@ setTimeout(() => {
             printMap();
             move(() => {
                 console.log(map);
+                console.log(path);
                 setTimeout(go, 1000);
             });
         });
