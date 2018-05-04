@@ -80,12 +80,14 @@ const setNeighborWeights = (neighbors, distances) => {
 }
 
 const visit = () => {
+    console.log('visit')
     const distances = lidar.scanDistances();
     setNeighborWeights(getNeighbors(), distances);
     map[location.x][location.y].visited = true;
 }
 
 const move = () => {
+    console.log('move')
     let target;
     Object.keys(map[location.x][location.y].neighbors).forEach((key) => {
         const neighbor = map[location.x][location.y].neighbors[key];
