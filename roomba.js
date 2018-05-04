@@ -55,18 +55,18 @@ module.exports = {
     turn: turn
 }
 
-function exitHandler(options, err) {
-    console.log('stopping robot...');
-    try {
-        robot.rotate(0);
-    }
-    catch (error) {
+// function exitHandler(options, err) {
+//     console.log('stopping robot...');
+//     try {
+//         robot.rotate(0);
+//     }
+//     catch (error) {
 
-    }
-    setTimeout(() => {
-        process.exit();
-    }, 200);
-}
+//     }
+//     setTimeout(() => {
+//         process.exit();
+//     }, 200);
+// }
 
-//do something when app is closing
-process.on('SIGINT', exitHandler);
+// //do something when app is closing
+// process.on('SIGINT', exitHandler);
