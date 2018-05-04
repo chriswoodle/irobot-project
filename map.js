@@ -137,6 +137,19 @@ const turnTo = (d, callback) => {
     go();
 };
 
+const printMap = ()=>{
+    map.forEach((row) => {
+        row.forEach((place) => {
+            if (place.visited !== true) {
+                process.stdout.write('V');
+            } else {
+                process.stdout.write('X');
+            }
+        });
+        process.stdout.write('\n');
+    });
+};
+
 setTimeout(() => {
     console.log('starting');
 
@@ -145,6 +158,7 @@ setTimeout(() => {
         visit(() => {
             move(() => {
                 console.log(map);
+                printMap();
                 setTimeout(go, 1000);
             });
         });
@@ -152,4 +166,5 @@ setTimeout(() => {
     go();
     console.log('done');
 }, 3000);
+
 console.log(map);
