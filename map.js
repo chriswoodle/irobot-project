@@ -108,7 +108,7 @@ const move = () => {
 
 const turnTo = (d) => {
     let index = directions.indexOf(direction);
-    while (directions[index] != target) {
+    while (directions[index] !== d) {
         roomba.turn()
         direction = directions[index];
         index++
