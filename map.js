@@ -169,8 +169,8 @@ setTimeout(() => {
         visit(() => {
             printMap();
             move(() => {
-                console.log(map);
-                console.log(path);
+                console.log('MAP: ', map);
+                console.log('PATH: ', path);
                 setTimeout(go, 1000);
             });
         });
