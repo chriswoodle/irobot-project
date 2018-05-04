@@ -8,24 +8,27 @@ robot.on('ready', function () {
 
 });
 
-const moveForward = () => {
+const moveForward = (callback) => {
     robot.drive(100, 0);
     setTimeout(() => {
         stop();
+        callback();
     }, 6000);
 };
 
-const moveReverse = () => {
+const moveReverse = (callback) => {
     robot.drive(-100, 0);
     setTimeout(() => {
         stop();
+        callback();
     }, 6000);
 };
 
-const turn = () => {
+const turn = (callback) => {
     robot.rotate(-100);
     setTimeout(() => {
         stop();
+        callback();
     }, 4350 / 2);
 }
 

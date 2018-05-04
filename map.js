@@ -86,7 +86,7 @@ const visit = () => {
     map[location.x][location.y].visited = true;
 }
 
-const move = () => {
+const move = (callback) => {
     console.log('move')
     let target;
     Object.keys(map[location.x][location.y].neighbors).forEach((key) => {
@@ -97,25 +97,28 @@ const move = () => {
     });
     if (target) {
         turnTo(target.direction);
-        roomba.moveForward()
         path.push(target);
+        roomba.moveForward(callback)
     } else {
         const previous = path.pop();
         turnTo(previous.direction);
-        roomba.moveReverse()
+        roomba.moveReverse(callback)
     }
 }
 
 const turnTo = (d) => {
     let index = directions.indexOf(direction);
-    while (directions[index] !== d) {
-        roomba.turn()
-        direction = directions[index];
-        index++
-        if (!(index < 4)) {
-            // wrap back around directions array
-            index = 0;
-        }
+    const go = () => {
+        if (directions[index] == d) return;
+        roomba.turn(() => {
+            direction = directions[index];
+            index++
+            if (!(index < 4)) {
+                // wrap back around directions array
+                index = 0;
+            }
+            go();
+        })
     }
 };
 
@@ -123,12 +126,16 @@ setTimeout(() => {
     console.log('starting');
     while (!isMapComplete()) {
         //const distances = lidar.scanDistances()
+
+    }
+    const go = () => {
+        if (isMapComplete()) return;
         visit();
-        move();
-        console.log(map);
+        move(() => {
+            console.log(map);
+            go();
+        });
     }
     console.log('done');
-
 }, 3000);
-
 console.log(map);
