@@ -51,9 +51,11 @@ const getNeighbors = () => {
 
 // distances [front,right,back,left]
 const setNeighborWeights = (neighbors, distances) => {
+    console.log(neighbors, distances);
     let index = directions.indexOf(direction);
     for (let distanceIndex = 0; distanceIndex < 4; distanceIndex++) {
         neighbors[directions[index]].distance = distances[distanceIndex];
+        console.log(distances[distanceIndex]);
         if (distances[distanceIndex] > OPEN_WALL_THRESHOLD_DISTANCE) {
             console.log('open')
             // Open path
