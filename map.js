@@ -125,8 +125,8 @@ const move = (callback) => {
         console.log('pop path!', previous);
         turnTo(previous.direction, () => {
             console.log('turntocomplete');
-            location.x = previous.x;
-            location.y = previous.y;
+            location.x = path[path.length - 1].x;
+            location.y = path[path.length - 1].y;
             roomba.moveReverse(callback);
         });
     }
@@ -170,6 +170,7 @@ setTimeout(() => {
         if (isMapComplete() === true) return;
         visit(() => {
             printMap();
+            console.log('LOCATION: ', location)
             move(() => {
                 console.log('MAP: ', map);
                 console.log('PATH: ', path);
