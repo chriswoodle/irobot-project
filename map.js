@@ -101,6 +101,7 @@ const move = (callback) => {
     console.log(target);
     if (target) {
         turnTo(target.direction, () => {
+            console.log('turntocomplete');
             path.push(target);
             location.x = target.x;
             location.y = target.y;
@@ -110,6 +111,7 @@ const move = (callback) => {
     } else {
         const previous = path.pop();
         turnTo(previous.direction, () => {
+            console.log('turntocomplete');
             location.x = previous.x;
             location.y = previous.y;
             roomba.moveReverse(callback);
@@ -120,6 +122,7 @@ const move = (callback) => {
 const turnTo = (d, callback) => {
     let index = directions.indexOf(direction);
     const go = () => {
+        console.log('go')
         if (directions[index] == d) return callback();
         roomba.turn(() => {
             direction = directions[index];
