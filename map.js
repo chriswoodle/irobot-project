@@ -117,7 +117,7 @@ const turnTo = (d) => {
     }
 };
 setTimeout(() => {
-    while (false && isMapComplete()) {
+    while (isMapComplete()) {
         //const distances = lidar.scanDistances()
         visit();
         move();
