@@ -98,15 +98,15 @@ const move = (callback) => {
     let target;
     let index = directions.indexOf(direction);
     for (let checkIndex = 0; checkIndex < 4; checkIndex++) {
-        const neighbor = map[location.x][location.y].neighbors[directions[index]];
-        if (neighbor && map[neighbor.x][neighbor.y].visited !== true && map[location.x][location.y].neighbors[directions[index]].weight) {
-            target = { direction: directions[index], x: neighbor.x, y: neighbor.y };
-            break;
-        }
         index++
         if (!(index < 4)) {
             // wrap back around directions array
             index = 0;
+        }
+        const neighbor = map[location.x][location.y].neighbors[directions[index]];
+        if (neighbor && map[neighbor.x][neighbor.y].visited !== true && map[location.x][location.y].neighbors[directions[index]].weight) {
+            target = { direction: directions[index], x: neighbor.x, y: neighbor.y };
+            break;
         }
     }
     console.log(target);
