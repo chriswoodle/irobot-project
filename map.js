@@ -98,6 +98,7 @@ const move = (callback) => {
             target = { direction: key, x: neighbor.x, y: neighbor.y };
         }
     });
+    console.log(target);
     if (target) {
         turnTo(target.direction);
         path.push(target);
